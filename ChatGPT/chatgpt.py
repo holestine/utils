@@ -25,16 +25,20 @@ def q_with_data(question, data):
 
 
 def samples():
-    response = get_completion('What are the best jobs going to be in 20 years?')
+    #response = get_completion('What are the best jobs going to be in 20 years?')
+    #print(f'{response}\n')
+
+    #response = get_completion('Write Python code to compute the Fibonacci sequence')
+    #print(f'{response}\n')
+
+    response = get_completion('Write a short essay about the book Harry Potter')
     print(f'{response}\n')
 
-    response = get_completion('Write Python code to compute the Fibonacci sequence')
-    print(f'{response}\n')
-
-    response = get_completion('Write a short essay about the book Atlas Shrugged')
+    response = get_completion('Create ASCII art of some fun characters')
+    #with open('art.txt', 'w') as f:
+    #    f.write(response)
     print(f'{response}\n')
 
 
 if __name__ == "__main__":
     samples()
-
