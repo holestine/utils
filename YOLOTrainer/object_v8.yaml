@@ -1,0 +1,6 @@
+train: 'train'
+val: 'val'
+
+# only one class
+nc: 1
+names: ['coupler']
