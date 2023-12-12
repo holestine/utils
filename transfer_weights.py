@@ -54,3 +54,23 @@ optimizer.step()
 print(net2.state_dict())
 
 
+print('\n------------------------- Save Expanded Model and Update Class Definition --------------------------------\n')
+
+torch.save(net2.state_dict(), 'Net2.pth')
+
+class Net2(nn.Module):
+    def __init__(self, pretrained=None):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1,1,3,1)
+        self.conv2 = nn.Conv2d(1,1,3,1)
+
+        if pretrained:
+            self.load_state_dict(torch.load(pretrained))
+ 
+    def forward(self, x):
+        out1 = self.conv1(x)
+        out2 = self.conv2(x)
+        return [out1, out2]
+    
+net2 = Net2('Net2.pth').cuda()
+print(net2.state_dict())
