@@ -2,9 +2,8 @@ from ultralytics import YOLO
 
 YOLO_MODEL = 'yolov8n'
 OBJECT     = 'object'
-EXT        = 'pt'
 
-model = YOLO('{}.{}'.format(YOLO_MODEL, EXT))
+model = YOLO('{}.pt'.format(YOLO_MODEL))
 
 results = model.train(
     data = 'object_v8.yaml',
