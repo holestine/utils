@@ -23,8 +23,10 @@ NOSE_BEGIN          = 51
 NOSE_END            = 59
 LEFT_EYE_BEGIN      = 60
 LEFT_EYE_END        = 67
+LEFT_EYE_IGNORES    = [62, 66]
 RIGHT_EYE_BEGIN     = 68
 RIGHT_EYE_END       = 75
+RIGHT_EYE_IGNORES   = [70, 74]
 MOUTH_BEGIN         = 76 
 MOUTH_END           = 95
 
@@ -59,12 +61,12 @@ def convert_wflw_row(wflw_pts):
 
     # Right Eye: ignore some indices
     for i in range(RIGHT_EYE_BEGIN, RIGHT_EYE_END+1, 1):
-        if i!=62 and i!=66:
+        if i not in RIGHT_EYE_IGNORES:
             converted_pts.extend([wflw_pts[2*i],wflw_pts[2*i+1]])
 
     # Left Eye: ignore some indices
     for i in range(LEFT_EYE_BEGIN, LEFT_EYE_END+1, 1):
-        if i!=70 and i!=74:
+        if i not in LEFT_EYE_IGNORES:
             converted_pts.extend([wflw_pts[2*i],wflw_pts[2*i+1]])
 
     # Mouth: keep everything
